@@ -91,7 +91,7 @@ class CompraDetail(generics.RetrieveUpdateDestroyAPIView):
 class ResenaListCreateView(generics.ListCreateAPIView):
     queryset = Resena.objects.all()
     serializer_class = ResenaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         # Asigna el usuario actual al crear una reseña
@@ -100,4 +100,4 @@ class ResenaListCreateView(generics.ListCreateAPIView):
 class ResenaDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Resena.objects.all()
     serializer_class = ResenaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
