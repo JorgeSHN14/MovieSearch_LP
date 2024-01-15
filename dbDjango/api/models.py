@@ -1,4 +1,4 @@
-# api/models.py
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser,Group, Permission
 
@@ -52,3 +52,13 @@ class Compra(models.Model):
 
     def __str__(self):
         return f"Compra de {self.pelicula.nombre} por {self.usuario.email} en {self.fecha_compra}"
+
+class Resena(models.Model):
+    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE, related_name='resenas')
+    usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    calificacion = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
+    comentario = models.TextField()
+    fecha_resena = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Reseña de {self.pelicula.nombre} por {self.usuario.email} ({self.calificacion}/5) en {self.fecha_resena}"
