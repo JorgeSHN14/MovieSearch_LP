@@ -42,17 +42,17 @@ class CustomUserList(generics.ListCreateAPIView):
 class CustomUserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class PeliculaList(generics.ListCreateAPIView):
     queryset = Pelicula.objects.all()
     serializer_class = PeliculaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class PeliculaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Pelicula.objects.all()
     serializer_class = PeliculaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     def perform_destroy(self, instance):
         # Eliminar la imagen asociada al eliminar una película
         instance.imagen.delete()
@@ -61,29 +61,29 @@ class PeliculaDetail(generics.RetrieveUpdateDestroyAPIView):
 class ReservaList(generics.ListCreateAPIView):
     queryset = Reserva.objects.all()
     serializer_class = ReservaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class ReservaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Reserva.objects.all()
     serializer_class = ReservaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class CarritoList(generics.ListCreateAPIView):
     queryset = Carrito.objects.all()
     serializer_class = CarritoSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class CarritoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Carrito.objects.all()
     serializer_class = CarritoSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class CompraList(generics.ListCreateAPIView):
     queryset = Compra.objects.all()
     serializer_class = CompraSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class CompraDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Compra.objects.all()
     serializer_class = CompraSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
