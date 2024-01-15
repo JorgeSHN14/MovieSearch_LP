@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import CustomUser, Pelicula, Reserva, Carrito, Compra
+from .models import CustomUser, Pelicula, Reserva, Carrito, Compra, Resena
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,3 +26,8 @@ class CompraSerializer(serializers.ModelSerializer):
     class Meta:
         model = Compra
         fields = '__all__'
+
+class ResenaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resena
+        fields = ['id', 'pelicula', 'usuario', 'calificacion', 'comentario', 'fecha_resena']
