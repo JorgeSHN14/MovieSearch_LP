@@ -1,7 +1,7 @@
 <?php
 include 'send_request.php';
 include 'cont_op_p.php';
-$idMovieToDelete = 3;
+$idMovieToDelete = 5;
 $endpoint = 'http://127.0.0.1:8000/api/peliculas/' . $idMovieToDelete . '/';
 $dataToEdit = array(
     'nombre' => 'Pasajeros',
