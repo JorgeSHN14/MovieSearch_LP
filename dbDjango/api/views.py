@@ -8,8 +8,8 @@ from rest_framework import serializers
 from .models import CustomUser
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from .models import CustomUser, Pelicula, Reserva, Carrito, Compra
-from .serializers import CustomUserSerializer, PeliculaSerializer, ReservaSerializer, CarritoSerializer, CompraSerializer
+from .models import CustomUser, Pelicula, Reserva, Carrito, Compra, Resena
+from .serializers import CustomUserSerializer, PeliculaSerializer, ReservaSerializer, CarritoSerializer, CompraSerializer, ResenaSerializer
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -87,3 +87,17 @@ class CompraDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Compra.objects.all()
     serializer_class = CompraSerializer
     permission_classes = [AllowAny]
+
+class ResenaListCreateView(generics.ListCreateAPIView):
+    queryset = Resena.objects.all()
+    serializer_class = ResenaSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        # Asigna el usuario actual al crear una reseña
+        serializer.save(usuario=self.request.user)
+
+class ResenaDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Resena.objects.all()
+    serializer_class = ResenaSerializer
+    permission_classes = [IsAuthenticated]
