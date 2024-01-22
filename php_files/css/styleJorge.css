@@ -1,0 +1,51 @@
+div{
+    justify-content: space-evenly;
+}
+.data{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    height: 40%;
+}
+.preview{
+    width: 40%;
+}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#imageContainer{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+#imagenPrevisualizacion {
+    position: relative;
+    width: 40%;
+}
+
+label{
+    background-color: rgb(111, 160, 250);
+    font-size: 17pt;
+    border-radius: 30%;
+    padding: 3px 7px;
+}
+
+.field{
+    margin: 2%;
+}
+
+#info{
+    width: 60%;
+    border: 7px rgb(166, 133, 255) ridge;
+    padding: 2%;
+}
+
+textarea{
+    width: 80%;
+    height: 20vb;
+    resize: none;
+}
