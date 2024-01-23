@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>    
             <div class="field">
                 <label for="imagen">Imagen:</label>
-                <input type="file" id="seleccionArchivos" name="imagen"><br>
+                <input type="url" id="imagenInput" name="imagen" oninput="updatePreview()"><br>
             </div>
             
             

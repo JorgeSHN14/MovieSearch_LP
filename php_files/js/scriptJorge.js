@@ -1,21 +1,11 @@
-// Obtener referencia al input y a la imagen
+function updatePreview() {
+  var inputUrl = document.getElementById('imagenInput').value;
+  var previewContainer = document.getElementById('imageContainer');
+  var previewImage = document.getElementById('imagenPrevisualizacion');
 
-const $seleccionArchivos = document.querySelector("#seleccionArchivos"),
-  $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
-
-// Escuchar cuando cambie
-$seleccionArchivos.addEventListener("change", () => {
-  // Los archivos seleccionados, pueden ser muchos o uno
-  const archivos = $seleccionArchivos.files;
-  // Si no hay archivos salimos de la función y quitamos la imagen
-  if (!archivos || !archivos.length) {
-    $imagenPrevisualizacion.src = "";
-    return;
+  if (inputUrl.trim() === "") {
+    previewImage.src = './src/default.webp';
+  } else {
+    previewImage.src = inputUrl;
   }
-  // Ahora tomamos el primer archivo, el cual vamos a previsualizar
-  const primerArchivo = archivos[0];
-  // Lo convertimos a un objeto de tipo objectURL
-  const objectURL = URL.createObjectURL(primerArchivo);
-  // Y a la fuente de la imagen le ponemos el objectURL
-  $imagenPrevisualizacion.src = objectURL;
-});
+}
