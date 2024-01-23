@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     
     <div class="line-divider"></div>
-    
+
     <div class="review-form">
         <form method="post" action="">
             <label for="pelicula">Película:</label>
@@ -79,43 +79,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!--Resenas anteriores-->
 <div class="previous-reviews">
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/feliz.png" alt="Avatar de usuario">
         <p class="review-text">Muy bonita. Estuvo entretenido.</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/feliz.png" alt="Avatar de usuario">
         <p class="review-text">Hola. Estuvo bien creo.</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/kha.jpg" alt="Avatar de usuario">
         <p class="review-text">Raro a mi parecer</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/feliz.png" alt="Avatar de usuario">
         <p class="review-text">Me gusta lo futurista</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/kha.jpg" alt="Avatar de usuario">
         <p class="review-text">Me encanto</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/kha.jpg" alt="Avatar de usuario">
         <p class="review-text">Muy bonita. Estuvo entretenido.</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/feliz.png" alt="Avatar de usuario">
         <p class="review-text">Muy bonita. Estuvo entretenido.</p> 
     </div>
     <div class="review-card">
-        <img class="user-avatar" src="./src/default.webp" alt="Avatar de usuario">
+        <img class="user-avatar" src="./src/kha.jpg" alt="Avatar de usuario">
         <p class="review-text">Muy bonita. Estuvo entretenido.</p> 
     </div>
 
-</div>
-
-<div class="review-navigation">
-    <div class="arrow arrow-left">&lt;</div>
-    <div class="arrow arrow-right">&gt;</div>
 </div>
 
 </body>

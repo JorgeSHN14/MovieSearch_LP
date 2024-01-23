@@ -1,0 +1,73 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: #800080;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+.previous-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.review-card {
+    width: 200px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.review-text {
+    margin: 10px;
+    font-size: 16px; 
+    font-weight: bold;
+    border-top: 2px solid #800080;
+}
+
+.delete-review {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.scroll-reviews {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 20px 0;
+}
+
+.scroll-reviews .review-card {
+    width: 250px;
+    margin-right: 20px;
+}
+
+/* Estilos para el review a eliminar */
+.review-to-delete {
+    font-size: 18px; 
+    font-weight: bold;
+    margin-top: 20px;
+    border: 2px solid #ff0000; 
+    padding: 10px;
+}
