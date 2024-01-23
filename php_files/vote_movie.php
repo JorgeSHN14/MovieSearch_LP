@@ -8,7 +8,7 @@ function convertirCalificacionAEstrellas($calificacion) {
     return $estrellas;
 }
 
-// Ejemplo Prueba
+// Ejemplo de Prueba
 $calificacionEjemplo = 3;
 $estrellas = convertirCalificacionAEstrellas($calificacionEjemplo);
 echo "Calificación: $estrellas";
