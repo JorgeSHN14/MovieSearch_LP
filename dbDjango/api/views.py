@@ -101,3 +101,35 @@ class ResenaDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Resena.objects.all()
     serializer_class = ResenaSerializer
     permission_classes = [AllowAny]
+
+
+def reservar_pelicula(request, pelicula_id, usuario_id):
+    pelicula = Pelicula.objects.get(pk=pelicula_id)
+    usuario = CustomUser.objects.get(pk=usuario_id)
+
+    # Realizar la reserva
+    reserva = Reserva(pelicula=pelicula, usuario=usuario)
+    reserva.save()
+
+    return Response(status=status.HTTP_201_CREATED)
+
+
+def agregar_al_carrito(request, pelicula_id, usuario_id):
+    pelicula = Pelicula.objects.get(pk=pelicula_id)
+    usuario = CustomUser.objects.get(pk=usuario_id)
+
+    # Agregar al carrito
+    carrito, created = Carrito.objects.get_or_create(usuario=usuario)
+    carrito.peliculas.add(pelicula)
+
+    return Response(status=status.HTTP_201_CREATED)
+
+def comprar_pelicula(request, pelicula_id, usuario_id):
+    pelicula = Pelicula.objects.get(pk=pelicula_id)
+    usuario = CustomUser.objects.get(pk=usuario_id)
+
+    # Realizar la compra
+    compra = Compra(pelicula=pelicula, usuario=usuario)
+    compra.save()
+
+    return Response(status=status.HTTP_201_CREATED)

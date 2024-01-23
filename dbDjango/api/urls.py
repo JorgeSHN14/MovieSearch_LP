@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import LoginView, CustomUserList, CustomUserDetail, PeliculaList, PeliculaDetail, ReservaList, ReservaDetail, CarritoList, CarritoDetail, CompraList, CompraDetail, ResenaListCreateView, ResenaDetailView
+from .views import LoginView, CustomUserList, CustomUserDetail, PeliculaList, PeliculaDetail, ReservaList, ReservaDetail, CarritoList, CarritoDetail, CompraList, CompraDetail, ResenaListCreateView, ResenaDetailView, reservar_pelicula, agregar_al_carrito, comprar_pelicula
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -42,6 +42,10 @@ urlpatterns = [
 
     path('resenas/', ResenaListCreateView.as_view(), name='resena-list-create'),
     path('resenas/<int:pk>/', ResenaDetailView.as_view(), name='resena-detail'),
+
+    path('reservar/<int:pelicula_id>/<int:usuario_id>/', reservar_pelicula, name='reservar_pelicula'),
+    path('agregar_al_carrito/<int:pelicula_id>/<int:usuario_id>/', agregar_al_carrito, name='agregar_al_carrito'),
+    path('comprar/<int:pelicula_id>/<int:usuario_id>/', comprar_pelicula, name='comprar_pelicula'),
 
 ]
 

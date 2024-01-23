@@ -25,7 +25,7 @@ class Pelicula(models.Model):
     director = models.CharField(max_length=255)
     sinopsis = models.TextField()
     estudio = models.CharField(max_length=100)
-    imagen = models.ImageField(upload_to='peliculas/', null=True, blank=True)
+    imagen = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return self.nombre
