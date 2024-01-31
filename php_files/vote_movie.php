@@ -35,74 +35,46 @@ if (!$detallesPelicula || isset($detallesPelicula['error'])) {
                 <h2>Previsualización</h2>
             </div>
             <div id="imageContainer">
-                <img src="./src/default.webp" id="imagenPrevisualizacion"/>
+                <img src="<?php echo $detallesPelicula['imagen']; ?>" id="imagenPrevisualizacion"/>
             </div>
         </div>
         
         <div id="info">
             <div class="field">
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" required><br>
+                <p><?php echo $detallesPelicula['nombre']; ?></p>
             </div>
             <div class="field">
                 <label for="genero">Género:</label>
-                <input type="text" name="genero" required><br>
+                <p><?php echo ($detallesPelicula['genero'] != null ? $detallesPelicula['genero'] : "none"); ?></p>
+      
             </div>
             <div class="field">
                 <label for="ano">Año:</label>
-                <input type="number" name="ano" required><br>
+                <p><?php echo ($detallesPelicula['año'] != null ? $detallesPelicula['año'] : "none"); ?></p>
+               
             </div>
             <div class="field">
                 <label for="elenco_principal">Elenco Principal:</label>
-                <input type="text" name="elenco_principal" required><br>
+                <p><?php echo ($detallesPelicula['elenco_principal'] != null ? $detallesPelicula['elenco_principal']: "none"); ?></p>
+                
             </div>
             <div class="field">
                 <label for="director">Director:</label>
-                <input type="text" name="director" required><br>
+                <p><?php echo ($detallesPelicula['director'] != null ? $detallesPelicula['director'] : "none"); ?></p>
             </div>
             <div class="field">
                 <label for="sinopsis">Sinopsis:</label>
-                <textarea name="sinopsis" required></textarea><br>
+                <p><?php echo $detallesPelicula['sinopsis']; ?></p>
+                
             </div>
             <div class="field">
                 <label for="estudio">Estudio:</label>
-                <input type="text" name="estudio" required><br>
+                <p><?php echo ($detallesPelicula['estudio'] != null ? $detallesPelicula['estudio'] : "none"); ?></p>
             </div>    
-            <div class="field">
-                <label for="imagen">Imagen:</label>
-                <input type="url" id="imagenInput" name="imagen" oninput="updatePreview()"><br>
-            </div>
-            
-            
-            <input type="submit" value="Enviar">
+
         </div>
     </div>
-
-    <div class="card">
-        <img src="<?php echo $detallesPelicula['imagen']; ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h2 class="card-title"><?php echo $detallesPelicula['nombre']; ?></h2>
-            <p class="description card-text"><?php echo $detallesPelicula['sinopsis']; ?></p>
-
-            <div class="list-group-flush">
-                <li class="description list-group-item" data-categoria="genero">
-                    <span class="categorization">Género: </span>
-                    <?php echo ($detallesPelicula['genero'] != null ? $detallesPelicula['genero'] : "none"); ?>
-                </li>
-                <li class="description list-group-item" data-categoria="estudio">
-                    <span class="categorization">Estudio: </span>
-                    <?php echo ($detallesPelicula['estudio'] != null ? $detallesPelicula['estudio'] : "none"); ?>
-                </li>
-                <li class="description list-group-item">
-                    <span class="categorization">Año: </span>
-                    <?php echo ($detallesPelicula['año'] != null ? $detallesPelicula['año'] : "none"); ?>
-                </li>
-                <li class="description list-group-item">
-                    <span class="categorization">Director: </span>
-                    <?php echo ($detallesPelicula['director'] != null ? $detallesPelicula['director'] : "none"); ?>
-                </li>
-            </div>
-        </div>
 
         <div class="card-body">
             <!-- Barra con estrellas -->
