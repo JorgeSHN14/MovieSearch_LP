@@ -154,6 +154,7 @@ function truncateOverview($sinopsis, $limit = 50, $trail = '...') {
                 }
                 echo '</div>' . PHP_EOL;
                 echo '</div>' . PHP_EOL;
+                echo '<a href="vote_movie.php?id=' . $pelicula['id'] . '">Ver Detalles</a>';
             }
         }
         ?>

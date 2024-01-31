@@ -1,0 +1,40 @@
+/* Estilos para la barra con estrellas */
+.rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating-label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.rating-stars {
+    display: flex;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+/* Estilo para el GridPane de comentarios */
+.comments-container {
+    margin-top: 20px;
+}
+
+.grid-pane {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+.comment {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+

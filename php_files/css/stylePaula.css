@@ -1,12 +1,13 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: white;
 }
 
 .title-section {
-    background-color: blueviolet;
-    color: aliceblue;
+    background-color: #4CAF50;
+    color: #fff;
     font-weight: bold;
     padding: 10px;
     text-align: center;
@@ -17,14 +18,19 @@ body {
     justify-content: space-around;
     align-items: center;
     margin: 20px;
+    background-color: #f0f0f0;
 }
 
 .movie-info {
     text-align: center;
+    border: 2px solid #fe4141;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .movie-image {
     max-width: 300px;
+    background-color: #f0f0f0;
 }
 
 .line-divider {
@@ -36,18 +42,19 @@ body {
 .review-form {
     margin: 20px;
     padding: 20px;
-    border: 2px solid #FFA500;
+    border: 2px solid #4CAF50;
     border-radius: 10px;
+    background-color: #f0f0f0;
+    width: 60%;
 }
 
 .movie-title {
     font-size: 20px;
     font-weight: bold;
-    color:aliceblue;
-    background-color: blue;
+    color: #fff;
+    background-color: #fe4141;
     padding: 10px;
     text-align: center;
-
 }
 
 form label {
@@ -65,19 +72,13 @@ form textarea {
     box-sizing: border-box;
 }
 
-
-.review-form {
-    flex: 1;
-    margin-right: 20px;
-}
-
 .previous-reviews {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px;
-    
-    overflow-x: scroll; 
+    overflow-x: scroll;
+    background-color: #f0f0f0;
 }
 
 .review-card {
@@ -87,13 +88,8 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: 10px;
     display: inline-block;
-}
-
-
-.review-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
+    background-color: #363636;
+    color: #fff;
 }
 
 .user-avatar {
@@ -105,7 +101,5 @@ form textarea {
 
 .review-text {
     margin: 10px;
+    color: #fff;
 }
-
-
-
