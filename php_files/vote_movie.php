@@ -26,9 +26,58 @@ if (!$detallesPelicula || isset($detallesPelicula['error'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Votar Película</title>
-    <link rel="stylesheet" href="stylePaula3.css">
+    <link rel="stylesheet" href="./css/styleJorge.css">
 </head>
 <body>
+<div class="data">
+        <div class="preview">
+            <div class="flex-center">
+                <h2>Previsualización</h2>
+            </div>
+            <div id="imageContainer">
+                <img src="./src/default.webp" id="imagenPrevisualizacion"/>
+            </div>
+        </div>
+        
+        <div id="info">
+            <div class="field">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required><br>
+            </div>
+            <div class="field">
+                <label for="genero">Género:</label>
+                <input type="text" name="genero" required><br>
+            </div>
+            <div class="field">
+                <label for="ano">Año:</label>
+                <input type="number" name="ano" required><br>
+            </div>
+            <div class="field">
+                <label for="elenco_principal">Elenco Principal:</label>
+                <input type="text" name="elenco_principal" required><br>
+            </div>
+            <div class="field">
+                <label for="director">Director:</label>
+                <input type="text" name="director" required><br>
+            </div>
+            <div class="field">
+                <label for="sinopsis">Sinopsis:</label>
+                <textarea name="sinopsis" required></textarea><br>
+            </div>
+            <div class="field">
+                <label for="estudio">Estudio:</label>
+                <input type="text" name="estudio" required><br>
+            </div>    
+            <div class="field">
+                <label for="imagen">Imagen:</label>
+                <input type="url" id="imagenInput" name="imagen" oninput="updatePreview()"><br>
+            </div>
+            
+            
+            <input type="submit" value="Enviar">
+        </div>
+    </div>
+
     <div class="card">
         <img src="<?php echo $detallesPelicula['imagen']; ?>" class="card-img-top" alt="...">
         <div class="card-body">
