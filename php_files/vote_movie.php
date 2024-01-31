@@ -1,18 +1,15 @@
 <?php
 include 'Peliculas.php';
-
+include 'remove_movie.php';
 $api_url = "http://127.0.0.1:8000/api/";
 $peliculas = new Peliculas($api_url);
-
 // Verificar si se ha proporcionado un ID de película válido
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Error: ID de película no válido.";
     exit();
 }
-
 $pelicula_id = $_GET['id'];
 $detallesPelicula = $peliculas->obtenerDetallesPelicula($pelicula_id);
-
 if (!$detallesPelicula || isset($detallesPelicula['error'])) {
     echo "Error: No se pudieron obtener los detalles de la película.";
     exit();
@@ -40,6 +37,10 @@ if (!$detallesPelicula || isset($detallesPelicula['error'])) {
         </div>
         
         <div id="info">
+            <div id="buttonsAction">
+                <button>Edit</button>
+                <button id="delete" onclick="<?php removeMovie($_GET['id']);?>">Delete</button>
+            </div>
             <div class="field">
                 <label for="nombre">Nombre:</label>
                 <p><?php echo $detallesPelicula['nombre']; ?></p>
@@ -105,5 +106,6 @@ if (!$detallesPelicula || isset($detallesPelicula['error'])) {
 
         </div>
     </div>
+    <script src="./js/scriptjorge.js"></script>
 </body>
 </html>

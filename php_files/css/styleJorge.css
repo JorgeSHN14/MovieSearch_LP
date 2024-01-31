@@ -56,9 +56,23 @@ input{
     background-color: #c8e6c9;
 }
 
-#send{
+#send, button{
   padding: 8px 12px; 
   background-color: #4CAF50;
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+}
+
+#buttonsAction {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#delete {
+  padding: 8px 12px; 
+  background-color: #d61313;
   color: #fff; 
   border: none;
   cursor: pointer;

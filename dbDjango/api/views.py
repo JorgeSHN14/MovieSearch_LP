@@ -55,7 +55,7 @@ class PeliculaDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [AllowAny]
     def perform_destroy(self, instance):
         # Eliminar la imagen asociada al eliminar una película
-        instance.imagen.delete()
+        # instance.imagen.delete()
         instance.delete()
 
 class ReservaList(generics.ListCreateAPIView):
