@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             
             
-            <input type="submit" value="Enviar">
+            <input id="send" type="submit" value="Enviar">
         </div>
     </div>
     

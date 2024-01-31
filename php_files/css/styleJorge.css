@@ -28,10 +28,11 @@ div{
 }
 
 label{
-    background-color: rgb(111, 160, 250);
     font-size: 17pt;
-    border-radius: 30%;
+    color: #fe4141;
+    font-weight: bold;
     padding: 3px 7px;
+
 }
 
 .field{
@@ -40,12 +41,25 @@ label{
 
 #info{
     width: 60%;
-    border: 7px rgb(166, 133, 255) ridge;
+    border: 2px black solid;
     padding: 2%;
+    background-color: beige;
 }
 
 textarea{
     width: 80%;
     height: 20vb;
     resize: none;
+}
+
+input{
+    background-color: #c8e6c9;
+}
+
+#send{
+  padding: 8px 12px; 
+  background-color: #4CAF50;
+  color: #fff; 
+  border: none;
+  cursor: pointer;
 }
