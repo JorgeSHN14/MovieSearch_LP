@@ -1,16 +1,15 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: white; 
+    font-family: Arial, sans-serif;
 }
 
 .header {
-    background-color: #4CAF50; 
-    color: #fff; 
+    background-color: #4CAF50;
+    color: #fff;
     text-align: center;
     padding: 10px;
-    font-size: 24px;
+    font-size: 24px; 
     font-weight: bold;
 }
 
@@ -21,35 +20,35 @@ body {
     margin: 20px;
 }
 
+.review-container {
+    width: 200px; /* Ancho del contenedor */
+    margin: 0 10px 20px 10px; /* Espaciado simétrico */
+}
+
 .review-card {
-    width: 200px;
-    margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    display: inline-block;
-    background-color: #f0f0f0; 
-    color: #363636; 
+    text-align: center;
 }
 
 .user-avatar {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .review-text {
-    margin: 10px;
-    font-size: 16px;
+    margin: 5px;
+    font-size: 12px;
     font-weight: bold;
-    border-top: 2px solid #4CAF50; 
-    color: #363636; 
+    border-top: 2px solid #4CAF50;
 }
 
 .delete-review {
-    background-color: #ff0000; 
-    color: #fff; 
+    background-color: #D32F2F;
+    color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -62,17 +61,23 @@ body {
     margin: 20px 0;
 }
 
-.scroll-reviews .review-card {
-    width: 250px;
-    margin-right: 20px;
-}
-
+/* Estilos para el review a eliminar */
 .review-to-delete {
-    font-size: 18px;
+    font-size: 18px; 
     font-weight: bold;
     margin-top: 20px;
-    border: 2px solid #ff0000; 
+    border: 2px solid #D32F2F;
     padding: 10px;
-    background-color: #f0f0f0; 
-    color: #363636;
 }
+
+.user-avatar-small {
+    width: 100%;
+    max-width: 50px; /* Establecer un tamaño máximo para el ancho */
+    max-height: 50px; /* Establecer un tamaño máximo para la altura */
+    height: auto;
+}
+
+.review-content {
+    text-align: center;
+}
+

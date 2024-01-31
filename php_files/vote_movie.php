@@ -13,7 +13,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 $pelicula_id = $_GET['id'];
 $detallesPelicula = $peliculas->obtenerDetallesPelicula($pelicula_id);
 
-if (!$detallesPelicula) {
+if (!$detallesPelicula || isset($detallesPelicula['error'])) {
     echo "Error: No se pudieron obtener los detalles de la película.";
     exit();
 }

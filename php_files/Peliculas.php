@@ -12,6 +12,7 @@ class Peliculas {
         return true;
     }
 
+    
     public function obtenerPeliculas($genero = null) {
         if (!$this->estaAutenticado()) {
             return array("error" => "Por favor, inicia sesión primero.");
@@ -28,6 +29,22 @@ class Peliculas {
         }
     }
 
+    public function obtenerDetallesPelicula($pelicula_id) {
+        if (!$this->estaAutenticado()) {
+            return array("error" => "Por favor, inicia sesión primero.");
+        }
+
+        $url = $this->api_url . "peliculas/{$pelicula_id}";
+
+        $detallesPelicula = json_decode(file_get_contents($url), true);
+
+        if (!empty($detallesPelicula)) {
+            return $detallesPelicula;
+        } else {
+            return array("error" => "No se encontraron detalles de la película.");
+        }
+    }
+    
     private function filtrarPorGenero($peliculas, $genero) {
         if ($genero === null || $genero === '') {
             return $peliculas;
