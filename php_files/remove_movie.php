@@ -7,6 +7,7 @@ function removeMovie($idMovie) {
     $response = sendRequest($endpoint, $context_options);
     // header("Location: index.php");
     // exit();
+}?>
 
-}
+<script>window.location.href = "index.php";</script>
 
