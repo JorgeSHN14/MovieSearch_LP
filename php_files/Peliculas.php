@@ -57,22 +57,62 @@ class Peliculas {
     }
 
 
-    public function realizarReservaDesdeCliente($pelicula_id, $usuario_id) {
-        $url = $this->api_url . "reservar/{$pelicula_id}/{$usuario_id}/";
-        $respuesta = $this->realizarSolicitud($url);
+    public function realizarReservaDesdeCliente($pelicula_id) {
+        // Temporalmente usando un ID de usuario quemado
+        $usuarioId = 1; 
+    
+        $url = $this->api_url . "reservas/";
+        $data = array('pelicula_id' => $pelicula_id, 'usuario_id' => $usuarioId);
+        $respuesta = $this->realizarSolicitud($url, $data);
+    
         $this->mostrarAlerta($respuesta);
     }
+    
+
+    public function mostrarReservasCliente() {
+        // Temporalmente usando un ID de usuario quemado
+        $usuarioId = 1; 
+    
+        $urlReservas = $this->api_url . "reservas/";
+        $dataReservas = array('usuario_id' => $usuarioId);
+        $reservas = json_decode($this->realizarSolicitud($urlReservas, $dataReservas), true);
+    
+        // Verificar si hay reservas
+        if (empty($reservas)) {
+            return array("error" => "No se encontraron reservas para el usuario.");
+        }
+    
+        // Obtener los detalles de las películas correspondientes a las reservas
+        $urlPeliculas = $this->api_url . "peliculas/";
+        $peliculas = json_decode(file_get_contents($urlPeliculas), true);
+    
+        // Crear un array asociativo para facilitar la búsqueda por ID de película
+        $peliculasIndexadas = array_column($peliculas, null, 'id');
+    
+        // Combina los detalles de la reserva con los detalles de la película
+        foreach ($reservas as &$reserva) {
+            $peliculaId = $reserva['pelicula'];
+            if (isset($peliculasIndexadas[$peliculaId])) {
+                $reserva['pelicula_detalle'] = $peliculasIndexadas[$peliculaId];
+            }
+        }try {
+            $result = file_get_contents($url, false, $context);
+            return $result;
+        } catch (Exception $e) {
+            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+            return "Error al realizar la solicitud: " . $e->getMessage();
+        }
+    
+        return $reservas;
+    }
+    
 
     public function agregarAlCarritoDesdeCliente($pelicula_id, $usuario_id) {
-        $url = $this->api_url . "agregar_al_carrito/{$pelicula_id}/{$usuario_id}/";
-        $respuesta = $this->realizarSolicitud($url);
-        $this->mostrarAlerta($respuesta);
+       
     }
 
     public function comprarDesdeCliente($pelicula_id, $usuario_id) {
-        $url = $this->api_url . "comprar/{$pelicula_id}/{$usuario_id}/";
-        $respuesta = $this->realizarSolicitud($url);
-        $this->mostrarAlerta($respuesta);
+
     }
 
     private function realizarSolicitud($url, $data = array()) {
