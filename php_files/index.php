@@ -1,8 +1,10 @@
 <?php
 include 'Peliculas.php';
+include 'Reservas.php';
 
 $api_url = "http://127.0.0.1:8000/api/";
 $peliculas = new Peliculas($api_url);
+
 
 // Verificar si la lista de géneros está vacía
 if (!isset($_SESSION['generos']) || empty($_SESSION['generos'])) {
@@ -38,11 +40,24 @@ if (!isset($_SESSION['estudios']) || empty($_SESSION['estudios'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $generoSeleccionado = $_POST['genero'];
-    $nombreBusqueda = $_POST['nombre'];
-    $estudioSeleccionado = $_POST['estudio'];
+    $generoSeleccionado = isset($_POST['genero']) ? $_POST['genero'] : null;
+    $nombreBusqueda = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+    $estudioSeleccionado = isset($_POST['estudio']) ? $_POST['estudio'] : null;
+
 
     $peliculasData = $peliculas->obtenerPeliculas($generoSeleccionado);
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['Reservar'])) {
+            $peliculaIdReserva = $_POST['Reservar'];
+            $peliculas->realizarReservaDesdeCliente($peliculaIdReserva);
+        }
+    
+        if (isset($_POST['MostrarR'])) {
+            header("Location: reservas.php");
+            exit();
+        }
+    }
 
     if (!empty($nombreBusqueda)) {
         $peliculasData = array_filter($peliculasData, function($pelicula) use ($nombreBusqueda) {
@@ -59,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Si no se ha enviado un formulario de filtrado, obtener todas las películas
     $peliculasData = $peliculas->obtenerPeliculas();
 }
+
 
 function usuarioLoggeado() {
     //logica
@@ -142,9 +158,10 @@ function truncateOverview($sinopsis, $limit = 50, $trail = '...') {
                 echo '<li class="description list-group-item"><span class="categorization">Año: </span> ' . ($pelicula['año'] != null ? $pelicula['año'] : "none") . '</li>' . PHP_EOL;
                 echo '<li class="description list-group-item"><span class="categorization">Director: </span>' . ($pelicula['director'] != null ? $pelicula['director'] : "none") . '</li>' . PHP_EOL;
                 echo '</div>' . PHP_EOL;
-
+                echo '<a href="vote_movie.php?id=' . $pelicula['id'] . '">Ver Detalles</a>';
                 echo '</div>' . PHP_EOL;
                 echo '<div class="card-body">' . PHP_EOL;
+<<<<<<< HEAD
                 if (usuarioLoggeado()) {
                     echo '<button class="btn btn-reservar" data-id="' . $pelicula['id'] . '">Reservar</button>' . PHP_EOL;
                     echo "<a class='review' href='new_review.php?id={$pelicula['id']}'>Agregar Review</a>" . PHP_EOL;
@@ -152,9 +169,21 @@ function truncateOverview($sinopsis, $limit = 50, $trail = '...') {
                     echo '<button class="btn btn-reservar" data-id="' . $pelicula['id'] . '" onclick="mostrarAlerta()">Reservar</button>' . PHP_EOL;
                     echo '<button class="btn btn-carrito" data-id="' . $pelicula['id'] . '" onclick="mostrarAlerta()">Agregar Review</button>' . PHP_EOL;
                 }
+=======
+
+                echo '<form method="post" action="index.php">';
+                echo '<input type="hidden" name="Reservar" value="' . $pelicula['id'] . '">';
+                echo '<button type="submit" class="btn btn-reservar">Reservar</button>';
+                echo '</form>';
+                    echo '<form method="post" action="index.php">';
+                    echo '<input type="hidden" name="MostrarR" value="' . $pelicula['id'] . '">';
+                    echo '<button type="submit" class="btn btn-carrito">Mostrar R</button>';
+                    echo '</form>';
+
+>>>>>>> 92581771f5df3e3d910eb45c82ec9a4001bef172
                 echo '</div>' . PHP_EOL;
                 echo '</div>' . PHP_EOL;
-                echo '<a href="vote_movie.php?id=' . $pelicula['id'] . '">Ver Detalles</a>';
+                
             }
         }
         ?>

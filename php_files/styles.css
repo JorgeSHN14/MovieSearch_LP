@@ -5,7 +5,7 @@
     display: grid;
     
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1rem; /* Espacio entre las tarjetas */
+    gap: 0.5rem; /* Espacio entre las tarjetas */
     padding-top: 10px;
     padding-bottom: 30px;
     padding-left: 100px;
