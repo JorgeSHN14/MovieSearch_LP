@@ -147,10 +147,10 @@ function truncateOverview($sinopsis, $limit = 50, $trail = '...') {
                 echo '<div class="card-body">' . PHP_EOL;
                 if (usuarioLoggeado()) {
                     echo '<button class="btn btn-reservar" data-id="' . $pelicula['id'] . '">Reservar</button>' . PHP_EOL;
-                    echo '<button class="btn btn-carrito" data-id="' . $pelicula['id'] . '">Agregar al Carrito</button>' . PHP_EOL;
+                    echo "<a class='review' href='new_review.php?id={$pelicula['id']}'>Agregar Review</a>" . PHP_EOL;
                 } else {
                     echo '<button class="btn btn-reservar" data-id="' . $pelicula['id'] . '" onclick="mostrarAlerta()">Reservar</button>' . PHP_EOL;
-                    echo '<button class="btn btn-carrito" data-id="' . $pelicula['id'] . '" onclick="mostrarAlerta()">Agregar al Carrito</button>' . PHP_EOL;
+                    echo '<button class="btn btn-carrito" data-id="' . $pelicula['id'] . '" onclick="mostrarAlerta()">Agregar Review</button>' . PHP_EOL;
                 }
                 echo '</div>' . PHP_EOL;
                 echo '</div>' . PHP_EOL;

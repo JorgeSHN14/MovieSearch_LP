@@ -42,7 +42,6 @@ urlpatterns = [
 
     path('resenas/', ResenaListCreateView.as_view(), name='resena-list-create'),
     path('resenas/<int:pk>/', ResenaDetailView.as_view(), name='resena-detail'),
-
     path('reservar/<int:pelicula_id>/<int:usuario_id>/', reservar_pelicula, name='reservar_pelicula'),
     path('agregar_al_carrito/<int:pelicula_id>/<int:usuario_id>/', agregar_al_carrito, name='agregar_al_carrito'),
     path('comprar/<int:pelicula_id>/<int:usuario_id>/', comprar_pelicula, name='comprar_pelicula'),

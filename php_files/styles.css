@@ -124,3 +124,11 @@ button {
   font-size: 30px;
   color: #021f06;
 }
+
+.review{
+  padding: 8px 12px; 
+  background-color: #4CAF50;
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+}

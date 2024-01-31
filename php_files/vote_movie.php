@@ -96,7 +96,11 @@ if (!$detallesPelicula || isset($detallesPelicula['error'])) {
                 <div class="grid-pane">
                     <!-- Ejemplo de comentario -->
                     <div class="comment">
-                        <strong>Usuario:</strong> Me encanto la trama de la pelicula y su originalidad
+                        <strong>Usuario:</strong>
+                        <?php
+                            require_once("save_review.php");
+                            echo mostrarComentarios($_GET['id']);
+                        ?>
                     </div>
                 </div>
             </div>

@@ -9,24 +9,31 @@
 <body>
 
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $pelicula = $_GET['id'];
+
+    $endpoint = "http://127.0.0.1:8000/api/peliculas/$pelicula";
+    $respuesta = file_get_contents($endpoint); 
+    $pelicula = json_decode($respuesta, true);
+    //print_r($pelicula);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $endpoint = 'http://127.0.0.1:8000/api/resenas/';
+    $pelicula = $_POST['id'];
 
-    $pelicula = $_POST['pelicula'];
-    $usuario = $_POST['usuario'];
-    $calificacion = $_POST['calificacion'];
-    $comentario = $_POST['comentario'];
+    $endpoint = "http://127.0.0.1:8000/api/peliculas/$pelicula";
+    $respuesta = file_get_contents($endpoint); 
+    $pelicula = json_decode($respuesta, true);
 
-    $data = array(
-        "pelicula" => $pelicula,
-        "usuario" => $usuario,
-        "calificacion" => $calificacion,
-        "comentario" => $comentario
-    );
+    //print_r($_POST);
+    if(isset($_POST['save_review'])){
+        $comentario = $_POST['comentario'];
+        $calificacion = $_POST['calificacion'];
 
-    $context_options = contextOptionsP($data, $_SERVER['REQUEST_METHOD']);
-    $response = sendRequest($endpoint, $context_options);
-    echo $response;
+        require_once("save_review.php");
+
+        agregarComentario($_POST['id'],$comentario,$calificacion);
+    }
 }
 ?>
 
@@ -36,42 +43,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="form-container">
     <div class="movie-info">
-        <img class="movie-image" src="./src/passengers.jpg" alt="Imagen de la pelicula">
-        <p class="movie-title"> Passengers</p>
+        <img class="movie-image" src="<?php echo $pelicula['imagen'] ?>" alt="Imagen de la pelicula">
+        <p class="movie-title"> <?php echo $pelicula['nombre'] ?></p>
     </div>
     
     <div class="line-divider"></div>
 
     <div class="review-form">
         <form method="post" action="">
-            <label for="pelicula">Película:</label>
-            <select name="pelicula" required>
-                <?php
-                $peliculas_json = file_get_contents('http://127.0.0.1:8000/api/peliculas/');
-                $peliculas = json_decode($peliculas_json, true);
-
-                foreach ($peliculas as $pelicula) {
-                    echo "<option value=\"{$pelicula['id']}\">{$pelicula['nombre']}</option>";
-                }
-                ?>
-            </select><br>
-
-            <label for="usuario">Usuario:</label>
-            <input type="text" name="usuario" required><br>
-
+            <label for="pelicula">Película:</label> <h1><?php echo $pelicula['nombre'] ?></h1>
+            
+            
             <label for="calificacion">Calificación:</label>
             <div>
-                <input type="radio" name="calificacion" value="1" required> 1
-                <input type="radio" name="calificacion" value="2"> 2
-                <input type="radio" name="calificacion" value="3"> 3
-                <input type="radio" name="calificacion" value="4"> 4
-                <input type="radio" name="calificacion" value="5"> 5
+                1<input type="radio" name="calificacion" value="1"> 
+                2<input type="radio" name="calificacion" value="2"> 
+                3<input type="radio" name="calificacion" value="3" checked> 
+                4<input type="radio" name="calificacion" value="4"> 
+                5<input type="radio" name="calificacion" value="5"> 
             </div><br>
 
             <label for="comentario">Comentario:</label>
             <textarea name="comentario" required></textarea><br>
 
-            <input type="submit" value="Enviar">
+            <input type="submit" name='save_review' value="Enviar">
+            <input type="hidden" name='id' value="<?php echo $pelicula['id']?>" >
         </form>
     </div>
 </div>
