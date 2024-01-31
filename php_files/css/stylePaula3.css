@@ -1,12 +1,41 @@
-/* Estilos para la barra con estrellas */
-.rating-container {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.data {
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.preview {
+    text-align: center;
+}
+
+#imagenPrevisualizacion {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#info {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.field {
     margin-bottom: 10px;
 }
 
+label {
+    font-weight: bold;
+}
+
+.rating-container {
+    margin-top: 20px;
+}
+
 .rating-label {
-    margin-right: 10px;
     font-weight: bold;
 }
 
@@ -15,26 +44,25 @@
 }
 
 .star {
-    cursor: pointer;
     font-size: 24px;
     margin-right: 5px;
+    cursor: pointer;
 }
 
-/* Estilo para el GridPane de comentarios */
 .comments-container {
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .grid-pane {
     display: grid;
+    gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .comment {
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
-
